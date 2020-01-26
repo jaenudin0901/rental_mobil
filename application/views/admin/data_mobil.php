@@ -3,23 +3,29 @@
           <div class="section-header">
             <h1>Data Mobil</h1>
           </div>
-          <a href="" class="btn btn-primary mb-3">Tambah Data</a>
+          <a href="<?= base_url('admin/data_mobil/tambah_mobil') ?>" class="btn btn-primary mb-3">Tambah Data</a>
+          <?php echo $this->session->flashdata('pesan');  ?>
           <table class="table table-hover table-striped table-borderd">
           	<thead>
-          		<th>No</th>
-          		<th>Gambar</th>
-          		<th>Type</th>
-          		<th>Merk</th>
-          		<th>No. Plat</th>
-          		<th>Status</th>
-          		<th>Aksi</th>
+                    <tr>
+               		<th>No</th>
+               		<th>Gambar</th>
+               		<th>Type</th>
+               		<th>Merk</th>
+               		<th>No. Plat</th>
+               		<th>Status</th>
+               		<th>Aksi</th>
+                    </tr>
           	</thead>
 
           		<?php 
           		$no=1;
           		foreach($mobil as $mb) : ?>
+                    <tr>
           			<td><?php echo $no++ ;?></td>
-          			<td></td>
+          			<td>
+                              <img width="60px" src="<?php echo base_url().'assets/upload/'.$mb->gambar ?>">            
+                         </td>
           			<td><?php echo $mb->kode_type ;?></td>
           			<td><?php echo $mb->merk ;?></td>
           			<td><?php echo $mb->no_plat ;?></td>
@@ -37,10 +43,11 @@
           				<a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
           				<a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
           			</td>
-      
+                    </tr> 
 
-          		<?php endforeach ?>
+          		<?php endforeach ; ?>
           	
           </table>
         </section>
      </div>
+
