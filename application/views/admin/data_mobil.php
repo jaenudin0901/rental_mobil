@@ -39,9 +39,9 @@
           				 ?>
           			</td>
           			<td>
-          				<a href="" class="btn btn-success"><i class="fas fa-eye"></i></a>
-          				<a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-          				<a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+          				<a href="<?php echo base_url('admin/data_mobil/detail_mobil/').$mb->aid_mobil  ;?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
+          				<a href="<?php echo base_url('admin/data_mobil/update_mobil/'). $mb->aid_mobil ;?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+          				<a href="<?php echo base_url('admin/data_mobil/delete_mobil/').$mb->aid_mobil  ;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
           			</td>
                     </tr> 
 
