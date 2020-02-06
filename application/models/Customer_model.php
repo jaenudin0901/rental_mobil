@@ -1,12 +1,13 @@
 <?php 
 
-class Type_model extends CI_Model {
+class Customer_model extends CI_model {
+
 	public function get_data($table)
 	{
 		return $this->db->get($table);
 	}
 
-	public function insert_data($data, $table)
+		public function insert_data($data, $table)
 	{
 		$this->db->insert($table, $data);
 	}
@@ -16,9 +17,9 @@ class Type_model extends CI_Model {
 		$this->db->update($table, $data, $where);
 	}
 
-	public function ambil_id_type($id)
+	public function ambil_id_customer($id)
 	{
-		$hasil = $this->db->where('aid_type', $id)->get('type');
+		$hasil = $this->db->where('aid_customer', $id)->get('customer');
 		if($hasil->num_rows() > 0){
 			return $hasil->result();
 		}else {
@@ -26,7 +27,7 @@ class Type_model extends CI_Model {
 		}
 	} 
 
-		public function delete_type($where, $table)
+		public function delete_data($where, $table)
 	{
 		$this->db->where($where);
 		$this->db->delete($table);

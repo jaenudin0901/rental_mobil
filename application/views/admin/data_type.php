@@ -26,7 +26,7 @@
  
           			<td>
           				<a href="<?php echo base_url('admin/data_type/detail_type/').$tp->aid_type  ;?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
-          				<a href="<?php echo base_url('admin/data_type/update_type/'). $tp->aid_type ;?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+          				<a href="<?php echo base_url('admin/data_type/update_type/').$tp->aid_type ;?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
           				<a href="<?php echo base_url('admin/data_type/delete_type/').$tp->aid_type  ;?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
           			</td>
                     </tr> 

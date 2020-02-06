@@ -19,7 +19,7 @@
 							<input type="text" name="nama_type" class="form-control" value="<?php echo $dt->nama_type ; ?>">
 							</div>
 							<a class="btn btn-sm btn-danger " href="<?php echo base_url('admin/data_type') ;?>">Kembali</a>
-                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/data_mobil/update_mobil'. $dt->aid_type); ?>">Update</a>
+                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/data_mobil/update_mobil/'. $dt->aid_type); ?>">Update</a>
 
 						</div>	
 					</div>	

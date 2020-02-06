@@ -37,7 +37,7 @@ class Data_type extends CI_Controller {
 			);
 
 		$this->Type_model->insert_data($data, 'type');
-		$this->session->set_flashdata('pesan','   <div class="alert alert-primary alert-dismissble fade show" role="alert">Data Mobil Berhasil Ditambahkan!.
+		$this->session->set_flashdata('pesan','   <div class="alert alert-primary alert-dismissble fade show" role="alert">Data Type Berhasil Ditambahkan!.
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
           </button>
@@ -46,13 +46,57 @@ class Data_type extends CI_Controller {
 		}
 	}
 
-		public function detail_type($id)
+	public function detail_type($id)
 	{
 		$data['detail'] = $this->Type_model->ambil_id_type($id); 
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('admin/detail_type', $data);
 		$this->load->view('templates_admin/footer');
+	}
+
+	public function update_type($id)
+	{
+		$where = array('aid_type' => $id);
+		$data['type'] = $this->db->query("SELECT * FROM  type tp WHERE aid_type = '$id' ")->result();
+	
+		$this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('admin/form_update_type', $data);
+		$this->load->view('templates_admin/footer');
+	}
+
+	public function update_type_aksi()
+	{
+		$this->_rules();
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->update_type();
+		} else { 
+
+			$id 		= $this->input->post('aid_type');
+			$kode_type  = $this->input->post('kode_type');
+			$nama_type 		= $this->input->post('nama_type');
+
+			$data = array(
+				'kode_type' =>	$kode_type,
+				'nama_type'		=>	$nama_type,
+			
+			);
+		$where = array(
+			'aid_type' => $id 
+		);
+
+		$this->Type_model->update_data('type',$data, $where);
+		$this->session->set_flashdata('pesan','   <div class="alert alert-success alert-dismissble fade show" role="alert">Data Type Mobil Berhasil DiUpdate!.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+          </button>
+     </div>');
+		redirect('admin/data_type');
+
+		}
 	}
 
 	public function delete_type($id)

@@ -65,7 +65,7 @@
 							</tr>
 						</table>	
     						<a class="btn btn-sm btn-danger ml-4" href="<?php echo base_url('admin/data_mobil') ?>">Kembali</a>
-                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/data_mobil/update_mobil'. $dt->aid_mobil) ?>">Update</a>
+                            <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/data_mobil/update_mobil/'. $dt->aid_mobil) ?>">Update</a>
     				</div>
     				
     			</div>

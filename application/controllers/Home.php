@@ -4,17 +4,16 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Mobil_model');
+		$this->load->model('Rental_model');
 	}
 
 
 	public function index()
 	{
 		$data['title'] = 'Halaman Home';
-		$data['mobil']= $this->Mobil_model->getAllMobil();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar');
+		$data['mobil'] = $this->Rental_model->get_data('mobil')->result();
+		$this->load->view('templates_customer/header', $data);
 		$this->load->view('home/index', $data);
-		$this->load->view('templates/footer');
+		$this->load->view('templates_customer/footer');
 	}
 }
