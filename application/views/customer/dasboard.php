@@ -69,7 +69,7 @@
                     echo anchor('customer/rental/tambah_tambah'. $mb->aid_mobil, '<button class="btn btn-success">Rental</button>');
                  } 
                  ?>
-                 <a class="btn btn-warning" href="">Detail</a>
+                 <a class="btn btn-warning" href="<?php echo base_url('customer/dasboard/detail_mobil/'). $mb->aid_mobil ;?>">Detail</a>
                 
               </div>
             </div>
