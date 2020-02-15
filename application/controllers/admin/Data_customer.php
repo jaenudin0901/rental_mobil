@@ -87,9 +87,9 @@ class Data_customer extends CI_Controller {
 			$this->update_customer();
 		} else { 
 
-			$id 		= $this->input->post('aid_type');
-			$nama 		= $this->input->post('kode_type');
-			$username 	= $this->input->post('nama_type');
+			$id 		= $this->input->post('aid_customer');
+			$nama 		= $this->input->post('nama');
+			$username 	= $this->input->post('username');
 			$password 	=$this->input->post('password');
 			$alamat 	= $this->input->post('alamat');
 			$gender 	= $this->input->post('gender');
