@@ -12,13 +12,14 @@ class Register extends CI_Controller {
 		$this->load->view('register_form');
 		$this->load->view('templates_admin/footer');
 		} else {
-				$nama  = $this->input->post('nama');
-			$username 		= $this->input->post('username');
-			$password 	= $this->input->post('password');
+			$nama  = $this->input->post('nama');
+			$username 	= $this->input->post('username');
+			$password 	= md5($this->input->post('password'));
 			$alamat 	= $this->input->post('alamat');
 			$gender 		= $this->input->post('gender');
 			$no_telp 	= $this->input->post('no_telp');
 			$no_ktp 	= $this->input->post('no_ktp');
+			$role_id  ='2';
 		
 	
 		$data = array(
@@ -28,7 +29,8 @@ class Register extends CI_Controller {
 				'alamat'		=> 	$alamat,
 				'gender'		=> 	$gender,
 				'no_telp'	=>  $no_telp,
-				'no_ktp'	=>	$no_ktp
+				'no_ktp'	=>	$no_ktp,
+				'role_id' 	=> 	$role_id
 			);
 
 		$this->Customer_model->insert_data($data, 'customer');
