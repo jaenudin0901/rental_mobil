@@ -52,7 +52,7 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->session_destroy();
+		$this->session->sess_destroy();
 		redirect('customer/dashboard');
 	}
 
@@ -71,11 +71,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('pass_baru','Password Baru','required|matches[ulang_pass]');
 		$this->form_validation->set_rules('ulang_pass','Ulangi Password','required');
 
-		if($this->form_validation->run() == FALSE){
-		$this->load->view('templates_admin/header');
-		$this->load->view('ganti_password');
-		$this->load->view('templates_admin/footer');
-		} else {
+		if($this->form_validation->run() != FALSE){
 			$data = array('password' =>md5($pass_baru));
 			$id =array('aid_customer' =>$this->session->userdata('aid_customer'));
 			$this->rental_model->update_password($id, $data,'customer');
@@ -87,6 +83,11 @@ class Auth extends CI_Controller {
 		</div> ');
 				
 		redirect('auth/login');
-		}
+		} else {
+			$this->load->view('templates_admin/header');
+			$this->load->view('ganti_password');
+			$this->load->view('templates_admin/footer');
+		} 
+	
 	}
 }

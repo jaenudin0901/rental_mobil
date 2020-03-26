@@ -16,7 +16,7 @@
                 <form method="POST" action="<?= base_url('auth/ganti_passwors_aksi'); ?>">
                   <div class="form-group">
                     <label for="pass_baru">Password Baru</label>
-                    <input id="pass_baru" type="password" class="form-control" name="username" tabindex="1" autofocus>
+                    <input id="pass_baru" type="password" class="form-control" name="pass_barus" tabindex="1" autofocus>
                     <?php echo form_error('pass_baru','<div class="text-danger text-small">','</div>'); ?>
                   </div>
 

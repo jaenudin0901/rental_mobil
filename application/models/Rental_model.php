@@ -39,7 +39,7 @@ class Rental_model extends CI_Model {
 
 		$result = $this->db
 						->where('username', $username)
-						->where('password', md5($password))
+						->where('password', $password)
 						->limit(1)
 						->get('customer');
 

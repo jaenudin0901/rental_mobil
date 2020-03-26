@@ -11,26 +11,27 @@ class Register extends CI_Controller {
 		$this->load->view('templates_admin/header');
 		$this->load->view('register_form');
 		$this->load->view('templates_admin/footer');
-		} else {
-			$nama  = $this->input->post('nama');
+		}
+		 else {
+			$nama 		= $this->input->post('nama');
 			$username 	= $this->input->post('username');
-			$password 	= md5($this->input->post('password'));
+			$password 	= $this->input->post('password');
 			$alamat 	= $this->input->post('alamat');
-			$gender 		= $this->input->post('gender');
+			$gender 	= $this->input->post('gender');
 			$no_telp 	= $this->input->post('no_telp');
 			$no_ktp 	= $this->input->post('no_ktp');
-			$role_id  ='2';
+			$role_id  	='2';
 		
 	
 		$data = array(
-				'nama' =>	$nama,
+				'nama' 			=>	$nama,
 				'username'		=>	$username,
-				'password'	=>	$password,
+				'password'		=>	$password,
 				'alamat'		=> 	$alamat,
 				'gender'		=> 	$gender,
-				'no_telp'	=>  $no_telp,
-				'no_ktp'	=>	$no_ktp,
-				'role_id' 	=> 	$role_id
+				'no_telp'		=>  $no_telp,
+				'no_ktp'		=>	$no_ktp,
+				'role_id' 		=> 	$role_id
 			);
 
 		$this->Customer_model->insert_data($data, 'customer');
@@ -38,7 +39,7 @@ class Register extends CI_Controller {
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
           </button>
-     </div>');
+     	</div>');
 		redirect('auth/login');
 		
 		}
@@ -46,8 +47,8 @@ class Register extends CI_Controller {
 
 	public function _rules()
 	{
-		$this->form_validation->set_rules('nama', 'nama', 'required');
-		$this->form_validation->set_rules('username', 'username', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('gender', 'Gender', 'required');
