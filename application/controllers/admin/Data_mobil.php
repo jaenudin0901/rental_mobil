@@ -34,6 +34,12 @@ class Data_mobil extends CI_Controller {
 			$warna  	= $this->input->post('warna');
 			$tahun 		= $this->input->post('tahun');
 			$status 	= $this->input->post('status');
+			$harga 	= $this->input->post('harga');
+			$denda 	= $this->input->post('denda');
+			$ac 	= $this->input->post('ac');
+			$supir 	= $this->input->post('supir');
+			$mp3_player= $this->input->post('mp3_player');
+			$central_lock= $this->input->post('central_lock');
 			$gambar 	= $_FILES['gambar']['name'];
 			if($gambar 	= '') {} else {
 				$config ['upload_path'] ='./assets/upload';
@@ -54,6 +60,13 @@ class Data_mobil extends CI_Controller {
 				'tahun'		=> 	$tahun,
 				'warna'		=> 	$warna,
 				'status'	=>  $status,
+				'harga'		=>  $harga,
+				'denda'		=>  $denda,
+				'ac'		=>  $ac,
+				'supir'		=>  $supir,
+				'mp3_player'		=>  $mp3_player,
+				'central_lock'		=>  $central_lock,
+			
 				'gambar'	=>	$gambar
 			);
 		$this->Rental_model->insert_data($data, 'mobil');
@@ -93,6 +106,12 @@ class Data_mobil extends CI_Controller {
 			$warna  	= $this->input->post('warna');
 			$tahun 		= $this->input->post('tahun');
 			$status 	= $this->input->post('status');
+			$harga 		= $this->input->post('harga');
+			$denda 		= $this->input->post('denda');
+			$ac 		= $this->input->post('ac');
+			$supir 		= $this->input->post('supir');
+			$mp3_player	= $this->input->post('mp3_player');
+			$central_lock = $this->input->post('central_lock');
 			$gambar 	= $_FILES['gambar']['name'];
 
 			if($gambar)  {
@@ -115,6 +134,12 @@ class Data_mobil extends CI_Controller {
 				'tahun'		=> 	$tahun,
 				'warna'		=> 	$warna,
 				'status'	=>  $status,
+				'harga'		=>  $harga,
+				'denda'		=>  $denda,
+				'ac'		=>  $ac,
+				'supir'		=>  $supir,
+				'mp3_player'		=>  $mp3_player,
+				'central_lock'		=>  $central_lock
 			);
 		$where = array(
 			'aid_mobil' => $id 
@@ -138,6 +163,12 @@ class Data_mobil extends CI_Controller {
 		$this->form_validation->set_rules('tahun', 'tahun', 'required');
 		$this->form_validation->set_rules('warna', 'Warna', 'required');
 		$this->form_validation->set_rules('status', 'Status', 'required');
+		$this->form_validation->set_rules('harga', 'Harga', 'required');
+		$this->form_validation->set_rules('denda', 'Denda', 'required');
+		$this->form_validation->set_rules('ac', 'Ac', 'required');
+		$this->form_validation->set_rules('supir', 'Supir', 'required');
+		$this->form_validation->set_rules('mp3_player', 'MP# Player', 'required');
+		$this->form_validation->set_rules('central_lock', 'Central Lock', 'required');
 
 	}
 
