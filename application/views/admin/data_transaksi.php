@@ -13,7 +13,8 @@
 				<th>Tgl.Rental</th>
 				<th>Tgl. Kembali</th>
 				<th>Harga</th>
-				<th>Denda</th>
+				<th>Denda / Hari</th>
+				<th>Total Denda</th>
 				<th>Tgl. Dikembalikan</th>
 				<th>Status Pengembalian</th>
 				<th>Status Rental</th>
@@ -32,6 +33,7 @@
 				<td><?php echo date('d/m/Y', strtotime($tr->tanggal_kembali)) ; ?></td>
 				<td>Rp.<?php echo number_format( $tr->harga,0,',','.') ; ?></td>
 				<td>Rp<?php echo number_format( $tr->denda,0,',','.') ; ?></td>
+				<td>Rp<?php echo number_format( $tr->total_denda,0,',','.') ; ?></td>
 				<td>
 					<?php 
 					if ($tr->tanggal_pengembalian == "0000-00-00") {
@@ -43,18 +45,18 @@
 				</td>
 				<td>
 					<?php 
-					if ($tr->status =="1") {
+					if ($tr->status_pengembalian =="1") {
 					 	echo"Kembali";
 					 } else {
-					 	echo" Belum Kembali";
+					 	echo"Belum Kembali";
 					 } ?>
 				</td>
 				<td>
 					<?php 
-					if ($tr->status =="1") {
-					 	echo"Kembali";
+					if ($tr->status_rental =="1") {
+					 	echo"Selesai";
 					 } else {
-					 	echo" Belum Kembali";
+					 	echo"Belum Selesai";
 					 } ?>
 				</td>
 
@@ -75,8 +77,8 @@
 					 }  else { ?>
 
 					 <div class="row">
-					 	<a class="btn btn-sm btn-primary mr-2" href="<?= base_url('admin/transaksi/transaksi_selesai') ?>"><i class="fas fa-check"></i></a>
-					 	<a class="btn btn-sm btn-danger" href="<?= base_url('admin/transaksi/transaksi_batal') ?>"><i class="fas fa-times"></i></a>
+					 	<a class="btn btn-sm btn-primary mr-2" href="<?= base_url('admin/data_transaksi/transaksi_selesai/'.$tr->aid_rental) ?>"><i class="fas fa-check"></i></a>
+					 	<a class="btn btn-sm btn-danger" href="<?= base_url('admin/transaksi/transaksi_batal/'.$tr->aid_rental) ?>"><i class="fas fa-times"></i></a>
 					 </div>
 
 					 <?php } ?>
