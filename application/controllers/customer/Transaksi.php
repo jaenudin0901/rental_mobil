@@ -58,4 +58,21 @@ class Transaksi extends CI_Controller {
 		$data['transaksi'] = $this->db->query("SELECT * FROM transaksi tr, mobil mb, customer cs WHERE tr.aid_mobil= mb.aid_mobil AND tr.aid_customer=cs.aid_customer AND tr.aid_rental='$id' ORDER BY aid_rental DESC")->result();
 		$this->load->view('customer/cetak_invoice', $data);
 	}
+
+	public function batal_transaksi($id){
+		$where = array('aid_rental' => $id);
+		$data= $this->Rental_model->get_where($where, 'transaksi')->row();
+		$where2= array('aid_mobil' =>$data->aid_mobil);
+
+		$data2=array('status' =>'1');
+
+		$this->Rental_model->update_data('mobil', $data2, $where2);
+		$this->Rental_model->delete_data($where, 'transaksi');
+		$this->session->set_flashdata('pesan','   <div class="alert alert-success alert-dismissble fade show" role="alert">Transaksi berhasil di batalkan!.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+          </button>
+    	 </div>');
+		redirect('customer/transaksi');
+	}
 }

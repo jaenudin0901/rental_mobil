@@ -24,8 +24,8 @@ class Rental extends CI_Controller {
 			'denda' => $denda,
 			'harga' => $harga,
 			'tanggal_pengembalian' =>'-',
-			'status_rental'			=>'belum selesai',
-			'status_pengembalian' 	=>'belum kembali'
+			'status_rental'			=>'Belum Selesai',
+			'status_pengembalian' 	=>'Belum Kembali'
 
 		);
 

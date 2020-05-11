@@ -16,8 +16,11 @@
     	<div class="form-group">
 	        <label>Status Pengembalian</label>	
 			   <select name="status_pengembalian" class="form-control">
+
 			       <option value="<?php echo $tr->status_pengembalian ?>"><?php echo $tr->status_pengembalian ?></option>
+
 			       <option value="Kembali">Kembali</option>
+			       
 			       <option value="Belum Kembali">Belum kembali	</option>
        </select>
     	</div>	
