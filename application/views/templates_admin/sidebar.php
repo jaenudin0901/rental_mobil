@@ -101,7 +101,7 @@
 
               <li><a class="nav-link" href="<?= base_url('admin/data_transaksi'); ?>"><i class="fas fa-random"></i> <span>Transaksi</span></a></li>
 
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-clipboard-list"></i> <span>Laporan</span></a></li>
+              <li><a class="nav-link" href="<?= base_url('admin/laporan'); ?>"><i class="fas fa-clipboard-list"></i> <span>Laporan</span></a></li>
 
                <li><a class="nav-link" href="<?= base_url('auth/logout');?>"><i class="fas fa-sign-alt"></i> <span>Logout</span></a></li>
 

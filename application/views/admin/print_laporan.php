@@ -1,10 +1,17 @@
-<div class="main-content">
-	<section class="section">
-		<div class="section-header">
-			<h1>Data Transaksi</h1>
-		</div>
-
-		<table class="table-responsive table table-bordered table-striped">
+<h3 style="text-align: center;">Laporan Transaksi Rental Mobil</h3>
+<table>	
+<tr>
+	<td>Dari Tanggal</td>
+	<td>:</td>
+	<td><?php 	echo date('d-M-Y', strtotime($_GET['dari'])); ?></td>
+</tr>
+<tr>
+	<td>Sampai Tanggal</td>
+	<td>:</td>
+	<td><?php 	echo date('d-M-Y', strtotime($_GET['sampai'])); ?></td>
+</tr>
+</table>
+<table class="table-responsive table table-bordered table-striped mt-3">
 			
 			<tr>
 				<th>No</th>
@@ -18,13 +25,12 @@
 				<th>Tgl. Dikembalikan</th>
 				<th>Status Pengembalian</th>
 				<th>Status Rental</th>
-				<th>Cek Pembayaran</th>
-				<th>Action</th>
+
 			</tr>
 
 			<?php 
 			$no=1; 
-			foreach($transaksi as $tr) : ?>
+			foreach($laporan as $tr) : ?>
 			<tr>
 				<td><?php echo $no++ ;?></td>
 				<td><?php echo $tr->nama ; ?></td>
@@ -39,7 +45,7 @@
 					if ($tr->tanggal_pengembalian == "0000-00-00") {
 					 	echo"-";
 					 } else {
-					 	echo date('d/m/Y'.strtotime($tr->tanggal_pengembalian));
+					 	echo date('d/m/Y'.strtotime(($tr->tanggal_pengembalian)));
 					 } 
 					 ?>
 				</td>
@@ -60,32 +66,14 @@
 					 } ?>
 				</td>
 
-				<td>
-					<center>
-						<?php 
-						if (empty($tr->bukti_pembayaran)){ ?>
-							<button class="btn btn-sm btn-danger"><i class="fas fa-times-circle"></i></button>
-						<?php } else { ?>
-							<a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/Data_transaksi/pembayaran/'.$tr->aid_rental); ?>"><i class="fas fa-check-circle"></i></a>
-						<?php } ?>
-					</center>
-				</td>
-				<td>
-					<?php 
-					if ($tr->status =="1") {
-					 	echo"-";
-					 }  else { ?>
-
-					 <div class="row">
-					 	<a class="btn btn-sm btn-primary mr-2" href="<?= base_url('admin/data_transaksi/transaksi_selesai/'.$tr->aid_rental) ?>"><i class="fas fa-check"></i></a>
-					 	<a class="btn btn-sm btn-danger" href="<?= base_url('admin/Data_transaksi/batal_transaksi/'.$tr->aid_rental) ?>"><i class="fas fa-times"></i></a>
-					 </div>
-
-					 <?php } ?>
-				</td>
+		
+	
 			</tr>
 		<?php endforeach; ?>
 			
 		</table>
-	</section>
-</div>
+
+
+		<script type="text/javascript">
+			window.print();
+		</script>
